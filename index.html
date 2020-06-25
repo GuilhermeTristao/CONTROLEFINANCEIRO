@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -19,23 +20,25 @@
 
         </div>
         <!-- -->
-        <div class="login_container">
+        <div class="login_container texto">
             <div class="tudo">
                 <div class = "login">
                     <div align="center">
-                        <img src="img/logo.png" alt="">
+                        <img src="img/menu.png" width=240 heigh=200>
                     </div>
+                    <br>
                     <form action="index.html">
                         <div>
                             <h5>E-mail</h5>
-                            <input class="input" type="email" id="email">
+                            <input class="input texto" type="email" id="email">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group texto">
                             <div>
                                 <h5>Senha</h5>
-                                <input class="input" type="password" id="password">
+                                <input class="input texto" type="password" id="password">
                             </div>
-       
+
+                            <br>
        
                             <a type="button" class="btn btn-success" onclick="goTo('cadastro.html')">Cadastre-se</a>
                             <button type="button" class="btn btn-info" onclick="Login(email.value,password.value)">Login</button>

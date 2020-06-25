@@ -11,6 +11,17 @@ header {
   height: 60px;
 }
 
+.texto{
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.texto1{
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+
 .left_area h3 {
   color: #fff;
   margin: 0;
