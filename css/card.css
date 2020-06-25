@@ -1,0 +1,50 @@
+.color1 {
+  background: #00c292;
+}
+.color2 {
+  background: #03a9f3;
+}
+.color3 {
+  background: #fb7146;
+}
+
+.card-body {
+  display: inline-block;
+  font-family: Toma Sans;
+  margin: 10px;
+  padding: 20px;
+  width: 450px;
+  height: 130px;
+  color: #ffff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.card-body h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.currency,
+.count {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.card-body p {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.card-body i {
+  font-size: 95px;
+  opacity: 0.6;
+}
