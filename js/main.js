@@ -356,7 +356,10 @@ function getUserFinances() {
     });
   }
   balance = entries - exits;
-  
+  document.getElementById("teste1").value = entries;
+  document.getElementById("teste2").value = balance;
+  document.getElementById("teste3").value = exits;
+
   document.getElementById("entriesQuant").innerHTML = entries;
   document.getElementById("balance").innerHTML = balance;
   document.getElementById("exitsQuant").innerHTML = exits;

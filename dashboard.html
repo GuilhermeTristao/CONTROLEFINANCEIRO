@@ -10,8 +10,14 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="css/main.css"></script>
     <title>Controle Financeiro</title>
+
 </head>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand/logo -->
@@ -48,18 +54,18 @@
 
 <body><br><br>
     <div class="canto">
-
+        
         <div class="row">
             <div class="form-group col-1 col-lg-1"></div>
     
             <div class="form-group col-3 col-lg-3">
                 <div class="card">
-                    <div class="card-header texto">
-                        <h4>Entradas</h4>
+                    <div class="card-header texto ">
+                        <h4 class="">Entradas</h4>
                     </div>
                     <h3>
-                        <span class="currency">R$</span>
-                        <span class="count" id="entriesQuant">0</span>
+                        <span class="currency "  id="totalentrada">R$</span>
+                        <span class="count " id="entriesQuant">0</span>
                     </h3>
                     </div>
                 <div class="card-body numerosIndex">
@@ -73,7 +79,7 @@
                         <h4>Saídas</h4>
                     </div>
                     <h3>
-                        <span class="currency">R$</span>
+                        <span class="currency" id="totalsaida">R$</span>
                         <span class="count" id="exitsQuant">0</span>
                     </h3>
                     </div>
@@ -88,7 +94,7 @@
                         <h4>Saldo</h4>
                     </div>
                     <h3>
-                        <span class="currency">R$</span>
+                        <span class="currency" id="saldototal">R$</span>
                         <span class="count" id="balance">0</span>
                     </h3>
                     </div>
@@ -98,15 +104,83 @@
                 
             </div>
             <div class="canto">
-        
-            <div class="form-group col-1 col-lg-1"></div>
-        <div id="saldototal">
-        </div>
+                <div id="container"></div>
+                <div id="sliders">
+                </div>
     </div>
+        <input type="hidden" id="teste1" value="0">
+        <input type="hidden" id="teste3" value="0">
+        <input type="hidden" id="teste2" value="0">
+        <script>
+var totalentrada = 100;
+var totalsaida =  52;
+var saldototal =  50;
+        </script>
+        
 </body>
 
 </html>
 
 <script>
     getUserFinances();
+    var chart = new Highcharts.Chart({
+  chart: {
+    renderTo: 'container',
+    type: 'column',
+    options3d: {
+      enabled: true,
+      alpha: 6,
+      beta: 16,
+      depth: 100,
+      viewDistance: 200
+    }
+  },
+  xAxis: {
+    type: 'category'
+  },
+  title: {
+    text: 'Renda Total'
+  },
+  subtitle: {
+    text: 'Gráfico demonstrativo'
+  },
+  plotOptions: {
+    column: {
+      depth: 25
+    }
+  },
+  series: [{
+    "colorByPoint": true,
+    data: [{
+      "name": "Entradas",
+      "y": 4024,
+      "drilldown": "Coluna 1"
+    }, {
+      "name": "Saidas",
+      "y": 500,
+      "drilldown": "Coluna 2"
+    }, {
+      "name": "Saldo Atual",
+      "y": 3524,
+      "drilldown": "Coluna 3"
+    }]
+  }]
+});
+
+function showValues() {
+  $('#alpha-value').html(chart.options.chart.options3d.alpha);
+  $('#beta-value').html(chart.options.chart.options3d.beta);
+  $('#depth-value').html(chart.options.chart.options3d.depth);
+}
+
+
+$('#sliders input').on('input change', function() {
+  chart.options.chart.options3d[this.id] = parseFloat(this.value);
+  showValues();
+  chart.redraw(false);
+});
+
+
+showValues()
+
 </script>

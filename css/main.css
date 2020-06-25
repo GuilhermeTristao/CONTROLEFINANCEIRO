@@ -217,9 +217,13 @@ a:hover {
   }
 }
 .positivo {
-  color: green;
+  font-size: 1.75rem;
+  background-color: green;
+  margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 .negativo{
-  color: red;
+  background-color: red;
 }
